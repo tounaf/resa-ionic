@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Analytics</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Total: {{analytics.totalReservations}}<br>
+      En attente: {{analytics.pending}}<br>
+      Approuvées: {{analytics.approved}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list-header>Réservations</ion-list-header>
+  <ion-card *ngFor="let res of reservations">
+    <ion-card-header>
+      <ion-card-title>{{res.user.username}} - {{res.field.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{res.slotTime | date:'medium'}} - Statut: {{res.status}}
+      <ion-button color="success" (click)="approve(res.id)">Approuver</ion-button>
+      <ion-button color="danger" (click)="reject(res.id)">Rejeter</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list-header>Clients</ion-list-header>
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      {{user.username}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header>Ajouter Option</ion-list-header>
+  <ion-item>
+    <ion-input [(ngModel)]="newOption" placeholder="ex: Restaurant"></ion-input>
+    <ion-button slot="end" (click)="addOption()">Ajouter</ion-button>
+  </ion-item>
+
+  <ion-list-header>Ajouter Zone</ion-list-header>
+  <ion-item>
+    <ion-input [(ngModel)]="newZone" placeholder="ex: Nouvelle Zone"></ion-input>
+    <ion-button slot="end" (click)="addZone()">Ajouter</ion-button>
+  </ion-item>
+</ion-content>

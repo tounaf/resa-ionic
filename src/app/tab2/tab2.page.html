@@ -1,17 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Mes Réservations</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content>
+  <ion-segment [(ngModel)]="filter" (ionChange)="loadReservations()">
+    <ion-segment-button value="ongoing">En cours</ion-segment-button>
+    <ion-segment-button value="past">Passées</ion-segment-button>
+  </ion-segment>
+  <ion-list>
+    <ion-card *ngFor="let res of filteredReservations">
+      <ion-card-header>
+        <ion-card-title>{{res.field.name}} - {{res.slotTime | date:'medium'}}</ion-card-title>
+        <ion-card-subtitle>Statut: {{res.status}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Paiement: {{res.paymentType}} via {{res.paymentMethod}}
+        <ion-chip *ngFor="let opt of res.selectedOptions">{{opt}}</ion-chip>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>
