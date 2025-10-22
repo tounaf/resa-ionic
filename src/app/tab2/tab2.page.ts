@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService, Field } from '../services/data.service'; // Import Reservation and Field
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 export interface Reservation {
   id: string;
@@ -20,7 +22,10 @@ export interface Reservation {
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   imports: [
-    IonicModule
+    IonicModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
   ]
 })
 export class Tab2Page implements OnInit {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service'; // Import Field interface
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 interface Field {
   id: string;
@@ -16,7 +18,10 @@ interface Field {
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   imports: [
-    IonicModule
+    IonicModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule
   ]
 })
 export class Tab1Page implements OnInit {
