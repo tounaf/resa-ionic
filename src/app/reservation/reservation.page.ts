@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { AlertController, IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +13,8 @@ import { CommonModule } from '@angular/common';
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class ReservationPage implements OnInit {

@@ -3,6 +3,7 @@ import { DataService } from '../services/data.service';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class AdminPage implements OnInit {

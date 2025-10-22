@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AlertController, IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -13,7 +13,8 @@ import { CommonModule } from '@angular/common';
     IonicModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class RegisterPage {
