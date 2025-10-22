@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'login.page.html',
+  templateUrl: 'register.page.html',
   styleUrls: ['login.page.scss'],
   imports: [
     IonicModule,

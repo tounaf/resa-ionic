@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Réservation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{field?.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Choisir horaire (30min)</ion-label>
+        <ion-datetime [(ngModel)]="slotTime" presentation="time"></ion-datetime>
+      </ion-item>
+      <ion-list-header>Options disponibles</ion-list-header>
+      <ion-item *ngFor="let opt of options">
+        <ion-label>{{opt}}</ion-label>
+        <ion-checkbox [(ngModel)]="selectedOptions[opt]"></ion-checkbox>
+      </ion-item>
+      <ion-segment [(ngModel)]="paymentType">
+        <ion-segment-button value="advance">Avance (non remboursable)</ion-segment-button>
+        <ion-segment-button value="full">Totalité</ion-segment-button>
+      </ion-segment>
+      <ion-segment [(ngModel)]="paymentMethod">
+        <ion-segment-button value="Mvola">Mvola</ion-segment-button>
+        <ion-segment-button value="OrangeMoney">Orange Money</ion-segment-button>
+      </ion-segment>
+      <ion-button expand="block" color="primary" (click)="reserve()">Confirmer Réservation</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
