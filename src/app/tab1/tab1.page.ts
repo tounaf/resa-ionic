@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service'; // Import Field interface
 import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 interface Field {
   id: string;
@@ -13,7 +14,10 @@ interface Field {
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
+  imports: [
+    IonicModule
+  ]
 })
 export class Tab1Page implements OnInit {
   fields: Field[] = []; // Use Field interface instead of any

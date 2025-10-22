@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService, Field } from '../services/data.service'; // Import Reservation and Field
 import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 export interface Reservation {
   id: string;
@@ -17,7 +18,10 @@ export interface Reservation {
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  styleUrls: ['tab2.page.scss'],
+  imports: [
+    IonicModule
+  ]
 })
 export class Tab2Page implements OnInit {
   reservations: (Reservation & { field: Field; isPast: boolean })[] = [];
