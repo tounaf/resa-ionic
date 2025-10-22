@@ -146,7 +146,7 @@ export class DataService {
     selectedOptions: string[]
   ): Promise<Reservation | undefined> {
     const user = await this.getCurrentUser();
-    if (!user) return;
+    if (!user) return undefined; // Explicitly return undefined
     const fields: Field[] = await this.getFields();
     const field = fields.find((f: Field) => f.id === fieldId);
     if (field) {
@@ -168,9 +168,10 @@ export class DataService {
         };
         reservations.push(res);
         await this._storage?.set('reservations', reservations);
-        return res;
+        return res; // Returns Reservation
       }
     }
+    return undefined; // Explicitly return undefined for cases where field or slot is not found
   }
 
   async getUserReservations(userId: string): Promise<(Reservation & { field: Field; isPast: boolean })[]> {

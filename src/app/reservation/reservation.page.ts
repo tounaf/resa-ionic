@@ -38,9 +38,14 @@ export class ReservationPage implements OnInit {
 
   async reserve() {
     const selectedOpts = Object.keys(this.selectedOptions).filter(opt => this.selectedOptions[opt]);
-    await this.dataService.makeReservation(this.fieldId, this.slotTime, this.paymentType, this.paymentMethod, selectedOpts);
+    const reservation = await this.dataService.makeReservation(this.fieldId, this.slotTime, this.paymentType, this.paymentMethod, selectedOpts);
+    if (!reservation) {
+      const alert = await this.alertCtrl.create({ message: 'Erreur: Terrain ou créneau indisponible' });
+      await alert.present();
+      return;
+    }
     const alert = await this.alertCtrl.create({ message: 'Réservation effectuée !' });
-    alert.present();
+    await alert.present();
     this.router.navigate(['/tab2']);
   }
 }
