@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.page.html',
   styleUrls: ['./admin.page.scss'],
+  imports: [
+    IonicModule
+  ]
 })
 export class AdminPage implements OnInit {
   reservations: any[] = [];
